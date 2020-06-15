@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+	
+	<!--- TurtleSim Düğümü - Kaplumbağanın Çağrılması İçin -->
+	<node pkg = "turtlesim" name = "sim" type = "turtlesim_node"/>
+
+	<!--- Turtle Draw Square Düğümü - Kaplumbağanın Sürekli Kare Çizmesi İçin -->
+	<node pkg = "turtlesim" name = "kare" type = "draw_square"/>
+
+</launch>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>labirent_dunya</name>
+  <version>0.0.0</version>
+  <description>The labirent_dunya package</description>
+  <!-- One maintainer tag required, multiple allowed, one person per tag -->
+  <maintainer email="robotik@todo.todo">robotik</maintainer>
+  <!-- One license tag required, multiple allowed, one license per tag -->
+  <license>TODO</license> 
+  <!-- Use buildtool_depend for build tool packages: -->
+  <buildtool_depend>catkin</buildtool_depend>
+</package>

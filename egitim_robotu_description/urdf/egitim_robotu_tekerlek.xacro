@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">  
+  <xacro:macro name="egitim_robotu_tekerlek" params="xyz_konum rpy_konum yon">    
+    <link name='wheel_${yon}_link'>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 1.570796 1.570796"/>
+        <geometry>
+          <cylinder radius="0.10" length="0.05"/>	
+        </geometry>
+      </collision>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 1.570796 1.570796"/>
+          <geometry>
+            <cylinder radius="0.10" length="0.05"/>	  			  
+	  </geometry>
+      </visual>
+      <xacro:cylinder_inertial radius="0.10" length="0.05" mass="0.5"/>
+    </link>
+  
+    <joint name="wheel_${yon}_base" type="continuous">
+      <origin xyz="${xyz_konum}" rpy="${rpy_konum}"/>
+      <parent link="base_footprint"/>
+      <child link="wheel_${yon}_link"/>
+      <axis xyz="0 1 0"/>    
+    </joint> 
+
+    <gazebo reference="wheel_${yon}_link">
+      <material value="Gazebo/Gray"/>
+    </gazebo>     
+  </xacro:macro>
+  
+  <xacro:macro name="egitim_robotu_sarhos_tekerlek" params="xyz_konum rpy_konum yon"> 
+    <link name='caster_wheel_${yon}_link'>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+	  <geometry>
+            <sphere radius="0.05"/>	  			  
+	  </geometry>
+       </collision>
+       <visual>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+	   <geometry>
+             <sphere radius="0.05"/>	  			  
+	   </geometry>
+       </visual>
+       <xacro:sphere_inertial radius="0.05" mass="0.05"/>
+     </link>
+    
+     <joint name="caster_${yon}_to_base" type="continuous">
+       <origin xyz="${xyz_konum}" rpy="${rpy_konum}"/>
+       <parent link="base_footprint"/>
+       <child link="caster_wheel_${yon}_link"/>
+       <axis xyz=" 1 1 1"/>    
+     </joint> 
+   </xacro:macro>
+ </robot>

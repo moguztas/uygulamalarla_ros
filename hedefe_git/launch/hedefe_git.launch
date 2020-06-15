@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+	<!-- Boş dünyayı çağıracak launch dosyası eklendi. -->
+	<include file="$(find turtlebot3_gazebo)/launch/turtlebot3_empty_world.launch"/>
+	<!-- Servis dosyası düğümü çağrıldı. -->
+	<node name="varis_kontrol_servisi" pkg="hedefe_git" type="varis_durum.py"/>
+	<!-- Hedef noktaya gitme düğümü çağrıldı. -->
+        <node name="hedefe_gitme_dugumu" pkg="hedefe_git" type="hedef_noktaya_gitme.py" output="screen"/>
+</launch>

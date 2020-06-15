@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<robot name="egitim_robotu" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find egitim_robotu_description)/urdf/egitim_robotu_taban.xacro"/>
+  <xacro:include filename="$(find egitim_robotu_description)/urdf/inertia_tensors.xacro"/>	
+  <xacro:include filename="$(find egitim_robotu_description)/urdf/egitim_robotu_tekerlek.xacro"/>
+  <xacro:include filename="$(find egitim_robotu_description)/urdf/egitim_robotu_diferansiyel.xacro"/>	
+  <xacro:include filename="$(find egitim_robotu_description)/urdf/egitim_robotu_lazer.xacro"/>
+  <xacro:include filename="$(find egitim_robotu_description)/urdf/egitim_robotu_kamera.xacro"/>	
+	
+  <xacro:egitim_robotu_taban />
+  <xacro:egitim_robotu_tekerlek xyz_konum="-0.0 -0.175 -0.1" rpy_konum="0 0 0" yon="left"/>
+  <xacro:egitim_robotu_tekerlek xyz_konum="-0.0 0.175 -0.1" rpy_konum="0 0 0" yon="right"/>
+  <xacro:egitim_robotu_sarhos_tekerlek xyz_konum="0.2 0.0 -0.15" rpy_konum="0 0 0" yon="front"/>
+  <xacro:egitim_robotu_sarhos_tekerlek xyz_konum="-0.2 0.0 -0.15" rpy_konum="0 0 0" yon="back"/>
+  <xacro:egitim_robotu_diferansiyel_surus />
+  <xacro:egitim_robotu_lazer xyz_konum="0.0 0.0 0.1125" rpy_konum="0 0 0"/>
+  <xacro:egitim_robotu_kamera xyz_konum="0.25 0.0 0.0" rpy_konum="0 0 0.0"/>
+</robot>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="robot_konum" default="-x 0.0 -y 0.0 -z 0.00 -R 0.0 -P 0.0 -Y 0.0" />
+  <arg name="robot_adi" default="/" />
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="/worlds/empty.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+    <param name="robot_description" command="$(find xacro)/xacro '$(find egitim_robotu_description)/urdf/egitim_robotu_govde.xacro'"/>
+    <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args="-urdf -model $(arg robot_adi) -param robot_description $(arg robot_konum) "/>
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    </node>
+    <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher">
+    </node>
+</launch>
